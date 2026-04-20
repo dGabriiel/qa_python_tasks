@@ -7,18 +7,19 @@ driver = webdriver.Chrome()
 driver.get("https://around-v1.nm.tripleten-services.com/signin?lng=es")
 
 # Buscar el campo Correo electrónico y rellenarlo
-driver.find_element(...)...
+driver.find_element(By.ID, "email").send_keys("tu_correo@ejemplo.com")
 
 # Buscar el campo Contraseña y rellenarlo
-driver.find_element(...)...
+driver.find_element(By.ID, "password").send_keys("tu_contraseña")
 
 # Buscar el botón Iniciar sesión y hacer clic en él
-driver.find_element(...)...
+driver.find_element(By.XPATH, ".//*[@class='auth-form__button']").click()
 
 # Agregar una espera explícita para que se cargue la página
-WebDriverWait(driver, 3)...
+wait = WebDriverWait(driver, 3)
 
 # Comprobar que la URL actual es 'https://around-v1.nm.tripleten-services.com/signin?lng=es'
-...
+assert driver.current_url == "https://around-v1.nm.tripleten-services.com/signin?lng=es"
+
 
 driver.quit()
